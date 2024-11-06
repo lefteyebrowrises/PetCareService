@@ -1,4 +1,4 @@
-public abstract class Animal {
+public abstract class Animal { // abstrackkkk
     private String name;
     private String type;
     private int age;

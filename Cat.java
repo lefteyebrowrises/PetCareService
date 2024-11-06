@@ -1,4 +1,4 @@
-public class Cat extends Animal {
+public class Cat extends Animal { // inheritance mewarisi class animal
     private String furType;
     private double boardingFee;
 

@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PetCareService {
-    private List<Animal> pets;
+    private List<Animal> pets; // enkapsulasi atribute private namun dapat di akses dengan bantuan metode
+                               // public, seperti getPetInfo
 
     public PetCareService() {
         pets = new ArrayList<>();
@@ -60,10 +61,10 @@ public class PetCareService {
         double totalCatFee = 0;
         double totalBirdFee = 0;
         double totalFee = 0;
-        
+
         for (Animal pet : pets) {
             totalAnimals++;
-        
+
             if (pet instanceof Dog) {
                 totalDogs++;
                 Dog dog = (Dog) pet;
@@ -78,9 +79,9 @@ public class PetCareService {
                 totalBirdFee += bird.getBoardingFee();
             }
         }
-        
+
         totalFee = totalDogFee + totalCatFee + totalBirdFee;
-        
+
         System.out.println("=============================================");
         System.out.println("               Total Hewan");
         System.out.println("=============================================");

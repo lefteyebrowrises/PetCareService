@@ -1,9 +1,9 @@
-public class Bird extends Animal {
+public class Bird extends Animal { // inheritance mewarisi class animal
     private String birdType;
-    private int cageSize;
+    private String cageSize;
     private double boardingFee;
 
-    public Bird(String name, String type, int age, String birdType, int cageSize, double boardingFee) {
+    public Bird(String name, String type, int age, String birdType, String cageSize, double boardingFee) {
         super(name, type, age);
         this.birdType = birdType;
         this.cageSize = cageSize;
@@ -14,7 +14,7 @@ public class Bird extends Animal {
         return birdType;
     }
 
-    public int getCageSize() {
+    public String getCageSize() {
         return cageSize;
     }
 
