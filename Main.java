@@ -2,7 +2,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        PetCareService petCareService = new PetCareService();
+        // Enkapsulasi ditunjukkan oleh kelas PetCareService, yang menjaga daftar hewan
+        // peliharaannya tetap private dan menyediakan metode public untuk berinteraksi
+        // dengannya, memastikan bahwa keadaan internal terlindungi dan hanya dapat
+        // dimodifikasi melalui metode yang ditentukan.
+        PetCareService petCareService = new PetCareService(); // Create an instance of PetCareService
         Scanner scanner = new Scanner(System.in);
 
         try {
@@ -46,6 +50,7 @@ public class Main {
 
                         switch (petChoice) {
                             case 1:
+                                // Creating a Dog object
                                 System.out.print("Masukkan breed anjing (small, medium, large): ");
                                 String breed = scanner.nextLine();
 
@@ -53,6 +58,7 @@ public class Main {
                                 String habit = scanner.nextLine();
 
                                 boardingFee = calculateBoardingFeeForDog(breed, days);
+                                // Menggunakan polimorfisme untuk menambahkan objek dog ke the petCareService
                                 petCareService.addPet(new Dog(name, type, age, breed, habit, boardingFee));
                                 System.out.println();
                                 System.out.println("=============================================");
@@ -68,10 +74,12 @@ public class Main {
                                 System.out.println();
                                 break;
                             case 2:
+                                // Creating a Cat object
                                 System.out.print("Masukkan jenis bulu kucing (short, long): ");
                                 String furType = scanner.nextLine();
 
                                 boardingFee = calculateBoardingFeeForCat(furType, days);
+                                // Menggunakan polimorfisme untuk menambahkan objek cat ke the petCareService
                                 petCareService.addPet(new Cat(name, type, age, furType, boardingFee));
                                 System.out.println();
                                 System.out.println("=============================================");
@@ -86,14 +94,13 @@ public class Main {
                                 System.out.println();
                                 break;
                             case 3:
-                                System.out.print("Masukkan jenis burung: ");
+                                // Creating a Bird object
+                                System.out.print("Masukkan ukuran burung (small, medium, large): ");
                                 String birdType = scanner.nextLine();
 
-                                System.out.print("Masukkan ukuran kandang burung (small, medium, large): ");
-                                String cageSize = scanner.nextLine();
-
                                 boardingFee = calculateBoardingFeeForBird(birdType, days);
-                                petCareService.addPet(new Bird(name, type, age, birdType, cageSize, boardingFee));
+                                // Menggunakan polimorfisme untuk menambahkan objek bird ke the petCareService
+                                petCareService.addPet(new Bird(name, type, age, birdType, boardingFee));
                                 System.out.println();
                                 System.out.println("=============================================");
                                 System.out.println("         Data yang Anda masukkan:");
@@ -101,8 +108,7 @@ public class Main {
                                 System.out.println("Nama: " + name);
                                 System.out.println("Jenis: " + type);
                                 System.out.println("Umur: " + age);
-                                System.out.println("Jenis burung: " + birdType);
-                                System.out.println("Ukuran kandang: " + cageSize);
+                                System.out.println("Ukuran burung: " + birdType);
                                 System.out.println("Biaya Penitipan: " + boardingFee);
                                 System.out.println("=============================================");
                                 System.out.println();
@@ -112,11 +118,13 @@ public class Main {
                         }
                         break;
                     case 2:
+                        // Displaying information about all pets
                         System.out.println();
                         System.out.println(petCareService.getPetInfo());
                         System.out.println();
                         break;
                     case 3:
+                        // Calculating and displaying the total boarding cost
                         System.out.println();
                         System.out.println(petCareService.calculateTotalCost());
                         System.out.println();

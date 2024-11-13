@@ -2,18 +2,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PetCareService {
-    private List<Animal> pets; // enkapsulasi atribute private namun dapat di akses dengan bantuan metode
-                               // public, seperti getPetInfo
+    private List<Animal> pets; // Enkapsulasi atribut private namun dapat diakses dengan bantuan metode publik
+                               // (addPet, getPetInfo, calculateTotalCost)
 
-    public PetCareService() {
+    public PetCareService() { // Constructor Di Java, konstruktor adalah metode khusus yang dipanggil saat
+                              // objek kelas dipakai. Ini digunakan untuk menginisialisasi objek.
         pets = new ArrayList<>();
     }
 
-    public void addPet(Animal pet) {
-        pets.add(pet);
+    public void addPet(Animal pet) { // contoh method yang tidak mengembalikan value apapun
+        pets.add(pet); // Menambahkan hewan ke daftar pets.
     }
 
-    public String getPetInfo() {
+    public String getPetInfo() { // contoh method yang mengembalikan value string
         StringBuilder info = new StringBuilder();
 
         System.out.println("=============================================");
@@ -25,23 +26,25 @@ public class PetCareService {
             return "";
         }
         for (Animal pet : pets) {
+            // Menggunakan metode dari kelas Animal
             info.append("Nama: ").append(pet.getName()).append("\n");
             info.append("Jenis: ").append(pet.getType()).append("\n");
             info.append("Umur: ").append(pet.getAge()).append("\n");
 
+            // Polimorfisme: Memeriksa tipe spesifik dari objek pet
             if (pet instanceof Dog) {
-                Dog dog = (Dog) pet;
+                Dog dog = (Dog) pet; // Casting ke tipe Dog
                 info.append("Breed: ").append(dog.getBreed()).append("\n");
                 info.append("Kebiasaan: ").append(dog.getHabit()).append("\n");
                 info.append("Biaya Penitipan: ").append(dog.getBoardingFee()).append("\n");
             } else if (pet instanceof Cat) {
-                Cat cat = (Cat) pet;
+                Cat cat = (Cat) pet; // Casting ke tipe Cat
                 info.append("Jenis bulu: ").append(cat.getFurType()).append("\n");
                 info.append("Biaya Penitipan: ").append(cat.getBoardingFee()).append("\n");
             } else if (pet instanceof Bird) {
-                Bird bird = (Bird) pet;
+                Bird bird = (Bird) pet; // Casting ke tipe Bird
                 info.append("Jenis burung: ").append(bird.getBirdType()).append("\n");
-                info.append("Ukuran kandang: ").append(bird.getCageSize()).append("\n");
+                // info.append("Ukuran kandang: ").append(bird.getCageSize()).append("\n");
                 info.append("Biaya Penitipan: ").append(bird.getBoardingFee()).append("\n");
             }
 
@@ -52,7 +55,7 @@ public class PetCareService {
         return info.toString();
     }
 
-    public String calculateTotalCost() {
+    public String calculateTotalCost() { // contoh method yang mengembalikan value string
         int totalDogs = 0;
         int totalCats = 0;
         int totalBirds = 0;
@@ -65,17 +68,18 @@ public class PetCareService {
         for (Animal pet : pets) {
             totalAnimals++;
 
+            // Polimorfisme: Memeriksa tipe spesifik dari objek pet
             if (pet instanceof Dog) {
                 totalDogs++;
-                Dog dog = (Dog) pet;
+                Dog dog = (Dog) pet; // Casting ke tipe Dog
                 totalDogFee += dog.getBoardingFee();
             } else if (pet instanceof Cat) {
                 totalCats++;
-                Cat cat = (Cat) pet;
+                Cat cat = (Cat) pet; // Casting ke tipe Cat
                 totalCatFee += cat.getBoardingFee();
             } else if (pet instanceof Bird) {
                 totalBirds++;
-                Bird bird = (Bird) pet;
+                Bird bird = (Bird) pet; // Casting ke tipe Bird
                 totalBirdFee += bird.getBoardingFee();
             }
         }
