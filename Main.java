@@ -148,8 +148,10 @@ public class Main {
             return days * 15000.0; // small breed, low maintenance
         } else if (breed.equals("Medium")) {
             return days * 25000.0; // medium breed, medium maintenance
-        } else {
+        } else if (breed.equals("Large")) {
             return days * 35000.0; // large breed, high maintenance
+        } else {
+            throw new IllegalArgumentException("Invalid breed: " + breed);
         }
     }
 
@@ -158,8 +160,10 @@ public class Main {
             return days * 10000.0; // short fur, low maintenance
         } else if (furType.equals("Long")) {
             return days * 20000.0; // long fur, high maintenance
-        } else {
+        } else if (furType.equals("Medium")) {
             return days * 15000.0; // default, medium maintenance
+        } else {
+            throw new IllegalArgumentException("Invalid breed: " + furType);
         }
     }
 
@@ -168,8 +172,10 @@ public class Main {
             return days * 5000.0; // small bird, small cage
         } else if (birdType.equals("Medium")) {
             return days * 10000.0; // medium bird, medium cage
-        } else {
+        } else if (birdType.equals("Large")) {
             return days * 15000.0; // large bird, large cage
+        } else {
+            throw new IllegalArgumentException("Invalid breed: " + birdType);
         }
     }
 }
