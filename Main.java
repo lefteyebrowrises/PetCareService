@@ -163,7 +163,7 @@ public class Main {
         } else if (furType.equals("Medium")) {
             return days * 15000.0; // default, medium maintenance
         } else {
-            throw new IllegalArgumentException("Invalid breed: " + furType);
+            throw new IllegalArgumentException("Invalid furType: " + furType);
         }
     }
 
@@ -175,7 +175,7 @@ public class Main {
         } else if (birdType.equals("Large")) {
             return days * 15000.0; // large bird, large cage
         } else {
-            throw new IllegalArgumentException("Invalid breed: " + birdType);
+            throw new IllegalArgumentException("Invalid birdType: " + birdType);
         }
     }
 }
